@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div id="container">
-        <div class="card" id="card1">
-
+        <h1>STONE PAPER & SCISSORS</h1>
+        <div id="container2">
+            <div class="card" id="card1">
+                <h2>User</h2>
+                <div class="imgChoice"></div>
+                <div class="controls">
+                    <button><</button>
+                    <div class="choice"></div>
+                    <button>></button>
+                </div>
+                <button id="done">Done</button>
+            </div>
+            <div class="card" id="card2">
+                <h2>Computer</h2>
+                <div class="imgChoice"></div>
+                <div class="controls">
+                    <div class="choice"></div>
+                </div>
+            </div>
         </div>
-        <div class="card2">
-
-        </div>
+        <div id="output"></div>
     </div>
 </body>
 </html>

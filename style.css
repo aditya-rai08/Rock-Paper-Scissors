@@ -1,0 +1,98 @@
+body{
+    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/003/015/451/small/comic-background-yellow-color-simple-free-vector.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-color: rgb(255, 234, 0);
+}
+
+#container{
+    display:flex;
+    flex-direction:column;
+    min-height:900px;
+    margin:0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    padding:0px;
+}
+
+#container2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+h1{
+    margin-bottom: 80px;
+    font-family:monospace;
+    font-size: 50px;
+}
+h2{
+    margin:0px;
+    margin-bottom: 5px;
+    font-family: monospace;
+}
+.card{
+    padding:19px;
+    padding-top: 10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+    border:3px solid black;
+    border-right: 7px solid black;
+    border-bottom: 7px solid black;
+    border-radius:30px;
+    height: 590px;
+    width: 400px;
+    background-color: rgb(255, 116, 116);
+}
+
+.imgChoice{
+    height: 380px;
+    width: 370px;
+    border: 3px solid black;
+    border-radius:30px;
+    background-color: white;
+}
+
+.controls{
+    /* border:2px solid black; */
+    display:flex;
+    flex-direction:row;
+    padding:15px;
+    height: 50px;
+    width: 370px;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-top:30px;
+
+
+}
+
+button{
+    text-align: center;
+    padding-bottom:20px;
+    height:50px;
+    width:50px;
+    border-radius:30px;
+    margin:0px;
+    font-size: 40px;
+    background-color: rgb(252, 237, 67);    
+}
+#done{
+    width:100px;
+    height:40px;
+    font-size: 30px;
+    font-family: monospace;
+}
+
+.choice{
+    border:1px solid black;
+    width:300px;
+    height:40px;
+    border-radius:20px;
+    background-color: white;
+}
