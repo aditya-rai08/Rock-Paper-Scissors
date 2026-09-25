@@ -1,19 +1,19 @@
-// function getComputerChoice(){
-//     let randomNumber = Math.random();
-//     let choice;
-//     if (randomNumber<=1/3){
-//         choice="rock";
-//         return choice;
-//     }
-//     else if (randomNumber<=2/3){
-//         choice="scissors";
-//         return choice;
-//     }
-//     else {
-//         choice="paper";
-//         return choice;
-//     }
-// }
+function getComputerChoice(){
+    let randomNumber = Math.random();
+    let choice;
+    if (randomNumber<=1/3){
+        choice="rock";
+        return choice;
+    }
+    else if (randomNumber<=2/3){
+        choice="scissors";
+        return choice;
+    }
+    else {
+        choice="paper";
+        return choice;
+    }
+}
 
 // function getHumanChoice(){
 //     let userInput=prompt("Choose between - Rock , Paper , Scissors : ");
@@ -72,3 +72,17 @@
 //     alert("Computer is the WINNER !!!");
 // }
 
+let choiceList=["Rock","Paper","Scissors"];
+let currentText;
+
+let previous=document.querySelector("#previous");
+previous.addEventListener("click", ()=>{
+
+})
+
+
+
+
+
+let next= document.querySelector("#next");
+let userChoice=document.querySelector("#userChoice");
