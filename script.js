@@ -1,88 +1,122 @@
+
+let choiceList=["Rock","Paper","Scissors"];
+let currentChoice=0;
+let rounds=Number(prompt("How many rounds do you want to play: "));
+let humanScore=0;
+let computerScore=0;
+
+let previous=document.querySelector("#previous");
+let next=document.querySelector("#next");
+let done=document.querySelector("#done");
+let userChoice=document.querySelector("#userChoice");
+let compChoice=document.querySelector("#compChoice");        
+let output=document.querySelector("#output");
+let roundNO=document.querySelector("#roundNo");
+let finalResult=document.querySelector("#finalResult");
+
+previous.addEventListener("click", ()=>{
+    if (currentChoice===0){
+        currentChoice=choiceList.length-1;
+    }
+    else{
+        currentChoice--;
+    }
+    userChoice.textContent=choiceList[currentChoice];
+
+    
+});
+
+next.addEventListener("click", ()=>{
+    if(currentChoice===2){
+        currentChoice=0;
+    }
+    else{
+        currentChoice++;
+    }
+    userChoice.textContent=choiceList[currentChoice];
+});
+
 function getComputerChoice(){
     let randomNumber = Math.random();
     let choice;
     if (randomNumber<=1/3){
-        choice="rock";
+        choice="Rock";
         return choice;
     }
     else if (randomNumber<=2/3){
-        choice="scissors";
+        choice="Scissors";
         return choice;
     }
     else {
-        choice="paper";
+        choice="Paper";
         return choice;
     }
 }
 
-// function getHumanChoice(){
-//     let userInput=prompt("Choose between - Rock , Paper , Scissors : ");
-//     let humanChoice=userInput.toLowerCase();
-//     return humanChoice;
-// }
+function playRound(human,computer){
+    let whoWon;
+        
+    if (computer === human){
+        whoWon="DRAW";
+        return whoWon;
+    }
 
-// function playRound(){
-//     let computerChoice=getComputerChoice();
-//     let humanChoice=getHumanChoice();
-//     let whoWon;
+    else if ((computer==="Rock" && human==="Scissors") || (computer==="Paper" && human==="Rock") || (computer==="Scissors" && human==="Paper")){
+        whoWon="Computer";
+        return whoWon;
+    }
+
+    else if ((computer==="Scissors" && human==="Rock") || (computer==="Rock" && human==="Paper") || (computer==="Paper" && human==="Scissors")){
+        whoWon="Human";
+        return whoWon;
+    }
+}
+
+let currentRound=1
+
+done.addEventListener("click", ()=>{
     
-//     if (computerChoice === humanChoice){
-//         alert("Computer Chose: "+ computerChoice+ " and Human Chose: "+ humanChoice + " so it is a "+ "DRAW");
-//         whoWon="DRAW";
-//         return whoWon;
-//     }
+    roundNO.textContent=`Round: ${currentRound}`;
+    if(currentRound>rounds){
+        return;
+    }
+    
+    let humanChoice;
+    humanChoice=choiceList[currentChoice];
+    let computerChoice=getComputerChoice();
 
-//     else if ((computerChoice==="rock" && humanChoice==="scissors") || (computerChoice==="paper" && humanChoice==="rock") || (computerChoice==="scissors" && humanChoice==="paper")){
-//         alert("Computer Chose: "+ computerChoice+ " and Human Chose: "+ humanChoice + ": so COMPUTER WON");
-//         whoWon="computer";
-//         return whoWon;
-//     }
+    let result=playRound(humanChoice,computerChoice);
 
-//     else if ((computerChoice==="scissors" && humanChoice==="rock") || (computerChoice==="rock" && humanChoice==="paper") || (computerChoice==="paper" && humanChoice==="scissors")){
-//         alert("Computer Chose: "+ computerChoice+ " and Human Chose: "+ humanChoice + ": so HUMAN WON");
-//         whoWon="human";
-//         return whoWon;
-//     }
-// }
+    output.textContent=`Output: ${result}`;
+    compChoice.textContent=computerChoice;
 
-// let rounds=prompt("How many rounds do you want to play: ")
-// let humanScore=0;
-// let computerScore=0;
-// for (let i=1; i<=rounds; i++){
-//     let result=playRound();
-//     if (result==="computer"){
-//         computerScore++;
-//     }
-//     else if (result==="human"){
-//         humanScore++;
-//     }
-//     else if (result==="DRAW"){
-//         console.log("No one won, IT WAS A DRAW");
-//     }
-// }
+    if(result==="Computer"){
+    computerScore++;
+    }
+    else if(result==="Human"){
+        humanScore++;
+    }
 
-// console.log("HUMAN SCORE : " + humanScore + '\n' + "and COMPUTER SCORE : " + computerScore);
-// if (humanScore===computerScore){
-//     alert("This game was a draw");
-// }
-// else if (humanScore > computerScore){
-//     alert("Human is the WINNER !!!");
-// }
-// else{
-//     alert("Computer is the WINNER !!!");
-// }
+    currentRound++
 
-let choiceList=["Rock","Paper","Scissors"];
-let currentText;
-
-let previous=document.querySelector("#previous");
-previous.addEventListener("click", ()=>{
-
-})
+    if(currentRound>rounds){
+        if(humanScore > computerScore){
+            finalResult.textContent=`You Won the game , Your Score is ${humanScore}`;
+         }   
+        else if(computerScore > humanScore){
+            finalResult.textContent=`Ohh, Computer Won the game ,You lost, Computer Score is ${computerScore}`;
+        }
+         else{
+            finalResult.textContent="The Game was a draw";
+        }   
+    }
+});
 
 
 
 
 
-let next= document.querySelector("#next");
-let userChoice=document.querySelector("#userChoice");
+
+
+
+
