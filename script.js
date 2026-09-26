@@ -1,5 +1,8 @@
 
 let choiceList=["Rock","Paper","Scissors"];
+let imageList=["/images/Rock.png",
+               "/images/Paper.png",
+               "/images/Scissors.png"];
 let currentChoice=0;
 let rounds=Number(prompt("How many rounds do you want to play: "));
 let humanScore=0;
@@ -7,6 +10,8 @@ let computerScore=0;
 
 let previous=document.querySelector("#previous");
 let next=document.querySelector("#next");
+let imgUser=document.querySelector("#imgUser");
+let imgComputer=document.querySelector("#imgComputer");
 let done=document.querySelector("#done");
 let userChoice=document.querySelector("#userChoice");
 let compChoice=document.querySelector("#compChoice");        
@@ -22,7 +27,8 @@ previous.addEventListener("click", ()=>{
         currentChoice--;
     }
     userChoice.textContent=choiceList[currentChoice];
-
+    imgUser.src=imageList[currentChoice];
+    
     
 });
 
@@ -34,6 +40,7 @@ next.addEventListener("click", ()=>{
         currentChoice++;
     }
     userChoice.textContent=choiceList[currentChoice];
+    imgUser.src=imageList[currentChoice];
 });
 
 function getComputerChoice(){
@@ -89,6 +96,16 @@ done.addEventListener("click", ()=>{
 
     output.textContent=`Output: ${result}`;
     compChoice.textContent=computerChoice;
+    switch(computerChoice){
+        case "Rock":imgComputer.src="/images/Rock.png";
+                    break;
+        case "Paper":imgComputer.src="/images/Paper.png";
+                    break;
+        case "Scissors":imgComputer.src="/images/Scissors.png";
+                    break;
+        default:imgComputer.src="/images/Question Mark.jpg";
+                break;
+    }
 
     if(result==="Computer"){
     computerScore++;
